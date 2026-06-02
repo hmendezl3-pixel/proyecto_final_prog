@@ -1,11 +1,16 @@
 # models_usuario.py
 # la clase usuario sirve para la autenticación
 
-class Usuario:
-    """
-    Clase que representa un usuario del sistema.
-    ENCAPSULAMIENTO: Atributos privados con getters.
-    """
+   class Usuario:
+    def __init__(self, nombre: str, rol: str):
+        self._nombre = nombre
+        self._rol = #'admin' o 'empleado'
+        
+    @property
+    def nombre(self): return self._nombre
+    @property    
+    def rol(self): return self._rol
+
     
     def __init__(self, nombre: str, rol: str):
         """
