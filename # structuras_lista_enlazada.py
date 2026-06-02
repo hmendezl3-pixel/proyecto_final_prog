@@ -10,29 +10,59 @@ Requisitos:
 - Operaciones básicas: agregar, eliminar, buscar
 """
 
-from typing import Any, Optional, Iterator
-from utils.utilidades import Utilidades
-
-
 class Nodo:
-    """
-    Clase auto-referenciada para los nodos de la lista enlazada.
-    Cada nodo contiene un dato y una referencia al siguiente nodo.
-    """
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None
+
+class ListaEnlazada:
+    """Implementación de lista enlazada simple"""
     
-    def __init__(self, dato: Any):
-        """
-        Constructor del nodo.
+    def __init__(self):
+        self._cabeza = None
+        self._tamaño = 0
+
+    def agregar(self, dato):
+        nuevo = Nodo(dato)
+        if not self._cabeza: 
+            self._cabeza = nuevo
+        else:
+            act = self._cabeza
+            while act.siguiente: 
+                act = act.siguiente
+            act.siguiente = nuevo
+        self._tamaño += 1
+    
+    def obtener_todos(self):
+         res,act = [], self._cabeza
+        while act:
+            res.append(act.dato)
+            act = act.siguiente
+        return res
         
-        Args:
-            dato: El dato que almacenará el nodo
-        """
-        self.dato = dato      # Dato almacenado
-        self.siguiente = None # Referencia al siguiente nodo (None si es el último)
+
+# PILA (Stack) - Unidad 6
+class Pila:
+    """Implementación de Pila (LIFO) para deshacer acciones"""
     
-    def __str__(self) -> str:
-        """Representación del nodo"""
-        return f"Nodo({self.dato})"
+    def __init__(self): 
+        self._items []    
+    def push(self, item):
+        self._items.append(item)   
+    def pop(self): 
+        return self._items.pop() if self._items else None
+
+# COLA (Queue) - Unidad 6
+class Cola:
+    """Implementación de Cola (FIFO) para pedidos pendientes"""
+    
+    def __init__(self):
+        self._items = []  
+    def encolar(self, item):
+        self._items.append(item)   
+    def desencolar(self): 
+        return self_items.pop(0)if self._items else None
+
 
 
 class ListaEnlazada:
